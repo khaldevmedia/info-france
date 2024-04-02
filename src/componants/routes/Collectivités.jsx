@@ -57,7 +57,7 @@ function Collectivités() {
             <CardMedia
               component="img"
               height="140"
-              image="/static/images/cards/region.png"
+              image="static/images/cards/region.png"
               alt="Image régions"
             />
             <CardContent>
@@ -78,7 +78,7 @@ function Collectivités() {
             <CardMedia
               component="img"
               height="140"
-              image="/static/images/cards/departement.png"
+              image="static/images/cards/departement.png"
               alt="Image départements"
             />
             <CardContent>
@@ -99,7 +99,7 @@ function Collectivités() {
             <CardMedia
               component="img"
               height="140"
-              image="/static/images/cards/commune.png"
+              image="static/images/cards/commune.png"
               alt="Image communes"
             />
             <CardContent>
