@@ -1,4 +1,4 @@
-# Frontend pour une API fournie par du gouvernoment français
+# Frontend non officiel pour une API fournie par le gouvernoment français
 
 ## Site Internet de l'API
 
