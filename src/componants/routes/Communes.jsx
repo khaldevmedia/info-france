@@ -54,6 +54,7 @@ function Communes() {
         </Typography>
         <Box
           sx={{
+            width: "100%",
             mb: 3,
             display: "flex",
             flexDirection: "row",
@@ -62,7 +63,7 @@ function Communes() {
         >
           <Autocomplete
             id="commune-combo-box"
-            sx={{ width: { xs: 290, md: 500 } }}
+            sx={{ width: { xs: "80%", md: "100%" }, maxWidth: { md: 500 } }}
             options={communes}
             getOptionLabel={(option) => option.nom}
             getOptionKey={(option) => option.siren}
@@ -81,10 +82,10 @@ function Communes() {
                 component="li"
                 {...props}
               >
-                <Box sx={{ width: "50%" }}>
+                <Box sx={{ width: "60%" }}>
                   <b>{option.nom}</b>
                 </Box>
-                <Box sx={{ width: "50%" }}>
+                <Box sx={{ width: "40%" }}>
                   {option.departement.code} - {option.departement.nom}
                 </Box>
               </Box>
@@ -110,14 +111,15 @@ function Communes() {
             )}
           />
           <Chip
-            label={communes.length > 0 ? communes.length : "0"}
-            color={communes.length > 0 ? "success" : "primary"}
+            label={communes.length}
+            color={"primary"}
             sx={{
+              fontSize: { md: 20, xs: 16 },
+              fontWeight: 400,
               ml: 1,
               height: 50,
               minWidth: 50,
               width: "auto",
-              fontSize: 16,
             }}
           />
         </Box>
