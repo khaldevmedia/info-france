@@ -24,7 +24,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 // Nos colmponants
 import Home from "../routes/Home";
 import About from "../routes/About";
-import Collectivités from "../routes/Collectivités";
+import Collectivites from "../routes/Collectivites";
 import Communes from "../routes/Communes";
 import CommuneView from "../routes/CommuneView";
 import AllDepartements from "../routes/AllDepartements";
@@ -202,7 +202,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/collectivites" element={<Collectivités />} />
+              <Route path="/collectivites" element={<Collectivites />} />
               <Route path="/collectivites/communes" element={<Communes />} />
               <Route
                 path="/collectivites/departements"
