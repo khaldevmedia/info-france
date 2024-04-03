@@ -4,7 +4,7 @@ import { Box, Typography, Alert } from "@mui/material";
 
 function Entreprise() {
   return (
-    <Box sx={{ height: "100%", ml: { md: 3, xs: 2 } }}>
+    <Box component="main" sx={{ height: "100%", px: { md: 3, xs: 2 } }}>
       <Typography sx={{ mb: 2 }} variant="h4">
         Entreprises
       </Typography>
