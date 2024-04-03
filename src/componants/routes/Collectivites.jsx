@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
-function Collectivités() {
+function Collectivites() {
   const navigate = useNavigate();
   return (
     <Box component="main" sx={{ height: "100vh", px: { md: 3, xs: 2 } }}>
@@ -117,4 +117,4 @@ function Collectivités() {
   );
 }
 
-export default Collectivités;
+export default Collectivites;
