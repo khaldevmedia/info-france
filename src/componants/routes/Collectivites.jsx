@@ -35,7 +35,7 @@ function Collectivites() {
         en additionnant la population de toutes les communes qu'ils contiennent.
         Cependant, la population calculée n'est pas codée en dur (c-à-d elle
         n'est pas une valeur fixe dans le code source), mais son chiffre est
-        calculé chaque fois la page rechargée.
+        calculé chaque fois la page est rechargée.
       </Typography>
       <Typography variant="h6" sx={{ mb: 0 }}>
         Les collectivites :

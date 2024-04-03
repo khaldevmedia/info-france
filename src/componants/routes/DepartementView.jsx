@@ -144,17 +144,19 @@ function DepartementView() {
           </Typography>
           <Typography sx={{ mb: 2 }} variant="h6">
             Population :{" "}
-            {depCommunesList
-              ? totalPopulation(depCommunesList)
-              : "(Indéterminée)"}
-            .
+            {depCommunesList && totalPopulation(depCommunesList) !== "0" ? (
+              totalPopulation(depCommunesList) + "."
+            ) : (
+              <CircularProgress size={15} />
+            )}
           </Typography>
           <Typography sx={{ mb: 2 }} variant="h6">
             Nombre des communes :{" "}
-            {depCommunesList.length > 1
-              ? depCommunesList.length
-              : "(Indéterminée)"}
-            .
+            {depCommunesList.length > 1 ? (
+              depCommunesList.length + "."
+            ) : (
+              <CircularProgress size={15} />
+            )}
           </Typography>
           {depCommunesList.length > 0 ? (
             <Box>
