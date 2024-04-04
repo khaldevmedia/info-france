@@ -66,7 +66,7 @@ function CommuneDetails() {
         </CenteredBox>
       ) : selectedCommune ? (
         <>
-          <Typography variant="h3" sx={{ mb: 2 }}>
+          <Typography variant="h4" sx={{ mb: 2 }}>
             {selectedCommune.nom}
           </Typography>
           <Grid container spacing={1}>
