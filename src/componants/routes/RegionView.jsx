@@ -150,6 +150,7 @@ function RegionsView() {
                         width: { md: "50%", xs: "100%" },
                         textAlign: "left",
                       }}
+                      color="success"
                       variant="outlined"
                       size="meduim"
                       onClick={() => {

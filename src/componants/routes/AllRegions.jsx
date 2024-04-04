@@ -94,6 +94,7 @@ function Regions() {
                     width: { md: "50%", xs: "100%" },
                     textAlign: "left",
                   }}
+                  color="secondary"
                   variant="outlined"
                   size="meduim"
                   onClick={() => navigate(regionObj.nom)}
