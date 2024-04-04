@@ -17,9 +17,10 @@ function CommuneCounterChip({ label, isLoading }) {
         minWidth: 50,
         width: "auto",
         lineHeight: "20px",
-        borderRadius: "16px",
-        color: "common.white",
-        bgcolor: "primary.main",
+        color: "primary.main",
+        border: 2,
+        borderColor: "primary.main",
+        borderRadius: "10px",
       }}
     >
       {isLoading ? <CircularProgress color="inherit" size={16} /> : label}

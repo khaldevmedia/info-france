@@ -40,7 +40,7 @@ function Communes() {
           console.log(`Error: ${err.message}`);
         }
       };
-      timeoutId = setTimeout(fetchData, 300);
+      timeoutId = setTimeout(fetchData, 400);
     } else {
       setCommunes([]);
     }
@@ -106,7 +106,15 @@ function Communes() {
                 onChange={(event, newValue) => {
                   setSelectedCommune(newValue);
                 }}
-                noOptionsText={"Acune commune trouvée"}
+                noOptionsText={
+                  inputValue === ""
+                    ? "Commancer à tapper pour cherche"
+                    : communes.length === 0 && isLoading
+                    ? "Recherche en cours..."
+                    : communes.length === 0 && !isLoading
+                    ? "Acune commune trouvée"
+                    : "Acune commune trouvée"
+                }
                 clearText={"Effacer"}
                 openText={"Ouvrir"}
                 blurOnSelect={"touch"}
