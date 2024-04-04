@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import { AppContext } from "../main/AppContext";
 import { useNavigate } from "react-router-dom";
 import {
   Box,
@@ -13,6 +14,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 function Collectivites() {
   const navigate = useNavigate();
+  const { setSelectedCommune } = useContext(AppContext);
   return (
     <Box component="main" sx={{ height: "100vh", px: { md: 3, xs: 2 } }}>
       <Breadcrumbs
@@ -93,7 +95,10 @@ function Collectivites() {
         </Card>
         <Card
           sx={{ width: { xs: "100%", md: "33.33%" } }}
-          onClick={() => navigate("communes")}
+          onClick={() => {
+            navigate("communes");
+            setSelectedCommune(null);
+          }}
         >
           <CardActionArea>
             <CardMedia

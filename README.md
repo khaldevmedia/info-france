@@ -1,10 +1,10 @@
-# Frontend non officiel pour une API fournie par le gouvernoment français
+# Frontend non officiel pour une API fournie par le gouvernement français
 
 ## Librairies utilisées
 
-Le frontend utilise React.js et Material UI
+Le frontend utilise React.js et Material UI pour créer une application web monopage qui consume l'API.
 
-## Demo
+## Démo
 
 https://khaldevmedia.github.io/info-france
 
