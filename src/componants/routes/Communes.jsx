@@ -12,6 +12,7 @@ import {
   Chip,
   Grid,
 } from "@mui/material";
+import BreadcrumbsHeader from "../SubComponants/BreadcrumbsHeader";
 
 function Communes() {
   const [communes, setCommunes] = useState([]);
@@ -50,6 +51,7 @@ function Communes() {
 
   return (
     <Box id="main" sx={{ height: "100%", px: { xs: 1, md: 3 }, mb: 3 }}>
+      <BreadcrumbsHeader />
       <Box sx={{ mb: 1 }}>
         <Typography sx={{ mb: 2 }} variant="h4">
           Les communes françaises
