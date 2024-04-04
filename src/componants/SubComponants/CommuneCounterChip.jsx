@@ -10,7 +10,6 @@ function CommuneCounterChip({ label, isLoading }) {
         justifyContent: "center",
         alignItems: "center",
         p: 1,
-        height: "32px",
         fontSize: { md: 20, xs: 16 },
         fontWeight: 400,
         ml: 1,
