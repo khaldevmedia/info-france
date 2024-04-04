@@ -1,8 +1,8 @@
 # Frontend non officiel pour une API fournie par le gouvernoment français
 
-## Librairies utlisées
+## Librairies utilisées
 
-Le frontend utlise React.js et Material UI
+Le frontend utilise React.js et Material UI
 
 ## Demo
 
