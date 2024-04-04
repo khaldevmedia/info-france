@@ -20,13 +20,6 @@ function Communes() {
 
   const { selectedCommune, setSelectedCommune } = useContext(AppContext);
 
-  // const [center, setCenter] = useState([45.75, 4.85]); // initial center
-
-  // // Une fonction pour modifier `center`
-  // const updateCenter = (newLatitude, newLongitude) => {
-  //   setCenter([newLatitude, newLongitude]);
-  // };
-
   useEffect(() => {
     setCommunes([]); // Effacer l'état des communes
     let timeoutId;
@@ -110,12 +103,6 @@ function Communes() {
                 }}
                 onChange={(event, newValue) => {
                   setSelectedCommune(newValue);
-                  if (newValue) {
-                    // updateCenter(
-                    //   newValue.centre.coordinates[1],
-                    //   newValue.centre.coordinates[0]
-                    // );
-                  }
                 }}
                 noOptionsText={"Acune commune trouvée"}
                 clearText={"Effacer"}
@@ -127,18 +114,6 @@ function Communes() {
               />
             </Grid>
             <Grid item xs={3}>
-              {/* <Chip
-                label={communes.length}
-                color={"primary"}
-                sx={{
-                  fontSize: { md: 20, xs: 16 },
-                  fontWeight: 400,
-                  ml: 1,
-                  height: 50,
-                  minWidth: 50,
-                  width: "auto",
-                }}
-              /> */}
               <CommuneCounterChip
                 label={communes.length}
                 isLoading={isLoading}
