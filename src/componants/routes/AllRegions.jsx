@@ -57,7 +57,16 @@ function Regions() {
           <Box>
             {regionsList.map((regionObj, index) => (
               <Box key={index}>
-                <Button onClick={() => navigate(regionObj.nom)}>
+                <Button
+                  sx={{
+                    mb: { md: 1, xs: 1 },
+                    width: { md: "50%", xs: "100%" },
+                    textAlign: "left",
+                  }}
+                  variant="outlined"
+                  size="meduim"
+                  onClick={() => navigate(regionObj.nom)}
+                >
                   {regionObj.nom}
                 </Button>
               </Box>

@@ -173,6 +173,13 @@ function DepartementView() {
                 filterCommunes().map((commune, index) => (
                   <Box key={index}>
                     <Button
+                      sx={{
+                        mb: { md: 1, xs: 1 },
+                        width: { md: "50%", xs: "100%" },
+                        textAlign: "left",
+                      }}
+                      variant="outlined"
+                      size="meduim"
                       onClick={() => {
                         setSelectedCommune(commune);
                         navigate(commune.nom);
