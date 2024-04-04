@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import api from "../../api/geoAPI";
 import { AppContext } from "../main/AppContext";
 import CommuneDetails from "../SubComponants/CommuneDetails";
+import CommuneCounterChip from "../SubComponants/CommuneCounterChip";
 
 import {
   Box,
@@ -15,29 +16,33 @@ import {
 function Communes() {
   const [communes, setCommunes] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const { selectedCommune, setSelectedCommune } = useContext(AppContext);
 
-  const [center, setCenter] = useState([45.75, 4.85]); // initial center
+  // const [center, setCenter] = useState([45.75, 4.85]); // initial center
 
-  // Une fonction pour modifier `center`
-  const updateCenter = (newLatitude, newLongitude) => {
-    setCenter([newLatitude, newLongitude]);
-  };
+  // // Une fonction pour modifier `center`
+  // const updateCenter = (newLatitude, newLongitude) => {
+  //   setCenter([newLatitude, newLongitude]);
+  // };
 
   useEffect(() => {
     setCommunes([]); // Effacer l'état des communes
     let timeoutId;
     if (inputValue) {
       const fetchData = async () => {
+        setIsLoading(true);
         try {
           const response = await api.get(
             `communes?nom=${inputValue}&fields=code,nom,codesPostaux,population,surface,departement,region,centre,siren`
           );
           if (response && response.data) {
+            setIsLoading(false);
             setCommunes(response.data);
           }
         } catch (err) {
+          setIsLoading(false);
           console.log(`Error: ${err.message}`);
         }
       };
@@ -106,10 +111,10 @@ function Communes() {
                 onChange={(event, newValue) => {
                   setSelectedCommune(newValue);
                   if (newValue) {
-                    updateCenter(
-                      newValue.centre.coordinates[1],
-                      newValue.centre.coordinates[0]
-                    );
+                    // updateCenter(
+                    //   newValue.centre.coordinates[1],
+                    //   newValue.centre.coordinates[0]
+                    // );
                   }
                 }}
                 noOptionsText={"Acune commune trouvée"}
@@ -122,7 +127,7 @@ function Communes() {
               />
             </Grid>
             <Grid item xs={3}>
-              <Chip
+              {/* <Chip
                 label={communes.length}
                 color={"primary"}
                 sx={{
@@ -133,6 +138,10 @@ function Communes() {
                   minWidth: 50,
                   width: "auto",
                 }}
+              /> */}
+              <CommuneCounterChip
+                label={communes.length}
+                isLoading={isLoading}
               />
             </Grid>
           </Grid>
