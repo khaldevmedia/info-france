@@ -6,6 +6,7 @@ import {
   Typography,
   CircularProgress,
   Alert,
+  TextField,
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +20,27 @@ function Regions() {
   const { regionsList, setRegionsList } = useContext(AppContext);
 
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+
+  const filterRegions = () => {
+    const fileredList = regionsList.filter((region) =>
+      // normalize("NFD") pour trouver 'ô' en tapant 'o'
+      // replace(/[\u0300-\u036f]/g, "") pour trouver 'é' en tapant 'e'
+      region.nom
+        .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .includes(
+          search
+            .trim()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+        )
+    );
+    return fileredList;
+  };
 
   const fetchAllRegions = async () => {
     try {
@@ -55,7 +77,16 @@ function Regions() {
           </CenteredBox>
         ) : regionsList.length > 0 ? (
           <Box>
-            {regionsList.map((regionObj, index) => (
+            <TextField
+              id="outlined-basic"
+              label="Filtrer les région"
+              variant="outlined"
+              value={search}
+              inputProps={{ type: "search" }}
+              onChange={(event) => setSearch(event.target.value)}
+              sx={{ mb: 2, width: { md: "50%", xs: "100%" } }}
+            />
+            {filterRegions().map((regionObj, index) => (
               <Box key={index}>
                 <Button
                   sx={{

@@ -6,6 +6,7 @@ import {
   Typography,
   CircularProgress,
   Alert,
+  TextField,
   Button,
 } from "@mui/material";
 
@@ -17,9 +18,30 @@ import { AppContext } from "../main/AppContext";
 function AllDepartements() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   const { setSelectedDepartement, departementsList, setDepartementsList } =
     useContext(AppContext);
+
+  const filterDepartements = () => {
+    const fileredList = departementsList.filter((departement) =>
+      // normalize("NFD") pour trouver 'ô' en tapant 'o'
+      // replace(/[\u0300-\u036f]/g, "") pour trouver 'é' en tapant 'e'
+      departement.nom
+        .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .includes(
+          search
+            .trim()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+        )
+    );
+    return fileredList;
+  };
 
   const fetchAllDepartements = async () => {
     try {
@@ -60,7 +82,16 @@ function AllDepartements() {
           </CenteredBox>
         ) : departementsList.length > 0 ? (
           <Box>
-            {departementsList.map((departementObj, index) => (
+            <TextField
+              id="outlined-basic"
+              label="Filtrer les départements"
+              variant="outlined"
+              value={search}
+              inputProps={{ type: "search" }}
+              onChange={(event) => setSearch(event.target.value)}
+              sx={{ mb: 2, width: { md: "50%", xs: "100%" } }}
+            />
+            {filterDepartements().map((departementObj, index) => (
               <Box key={index}>
                 <Button
                   sx={{
