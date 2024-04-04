@@ -3,7 +3,6 @@ import { CircularProgress, Chip, Box } from "@mui/material";
 function CommuneCounterChip({ label, isLoading }) {
   return (
     <Box
-      //   label={isLoading ? <CircularProgress size={16} /> : label}
       color={"primary"}
       backgroundColor={"primary"}
       sx={{
@@ -22,7 +21,6 @@ function CommuneCounterChip({ label, isLoading }) {
         borderRadius: "16px",
         color: "common.white",
         bgcolor: "primary.main",
-        // backgroundColor: "primary",
       }}
     >
       {isLoading ? <CircularProgress color="inherit" size={16} /> : label}
