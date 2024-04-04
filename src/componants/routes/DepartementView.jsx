@@ -152,7 +152,7 @@ function DepartementView() {
           </Typography>
           <Typography sx={{ mb: 2 }} variant="h6">
             Nombre des communes :{" "}
-            {depCommunesList.length > 1 ? (
+            {depCommunesList.length > 0 ? (
               depCommunesList.length + "."
             ) : (
               <CircularProgress size={15} />
@@ -167,14 +167,14 @@ function DepartementView() {
                 value={search}
                 inputProps={{ type: "search" }}
                 onChange={(event) => setSearch(event.target.value)}
-                sx={{ width: { xs: 290, md: 500 }, mb: 3 }}
+                sx={{ mb: 2, width: { md: "50%", xs: "100%" } }}
               />
               {depCommunesList &&
                 filterCommunes().map((commune, index) => (
                   <Box key={index}>
                     <Button
                       sx={{
-                        mb: { md: 1, xs: 1 },
+                        mb: 1,
                         width: { md: "50%", xs: "100%" },
                         textAlign: "left",
                       }}

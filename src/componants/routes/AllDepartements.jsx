@@ -64,7 +64,7 @@ function AllDepartements() {
               <Box key={index}>
                 <Button
                   sx={{
-                    mb: { md: 1, xs: 1 },
+                    mb: 1,
                     width: { md: "50%", xs: "100%" },
                     textAlign: "left",
                   }}

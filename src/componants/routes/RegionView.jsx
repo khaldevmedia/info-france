@@ -139,14 +139,14 @@ function RegionsView() {
                 value={search}
                 inputProps={{ type: "search" }}
                 onChange={(event) => setSearch(event.target.value)}
-                sx={{ width: { xs: 290, md: 500 }, mb: 3 }}
+                sx={{ mb: 2, width: { md: "50%", xs: "100%" } }}
               />
               {regDepartementsList &&
                 filterDepartements().map((departement, index) => (
                   <Box key={index}>
                     <Button
                       sx={{
-                        mb: { md: 1, xs: 1 },
+                        mb: 1,
                         width: { md: "50%", xs: "100%" },
                         textAlign: "left",
                       }}
