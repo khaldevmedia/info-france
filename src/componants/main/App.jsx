@@ -24,6 +24,8 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 // React-router-dom
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
+import ScrollToTopButton from "../SubComponants/ScrollToTopButton";
+
 // Nos colmponants
 import Home from "../routes/Home";
 import About from "../routes/About";
@@ -275,6 +277,7 @@ function App() {
               </Routes>
               <ScrollToTop />
             </Box>
+            <ScrollToTopButton />
           </Box>
         </Router>
       </AppContext.Provider>
