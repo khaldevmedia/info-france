@@ -15,6 +15,8 @@ import {
   Collapse,
 } from "@mui/material";
 
+import { useTheme } from "@mui/material/styles";
+
 // MUI Icons
 import BlurOnIcon from "@mui/icons-material/BlurOn";
 import InfoIcon from "@mui/icons-material/Info";
@@ -100,6 +102,7 @@ const linkList = [
 ];
 
 function DrawerContent() {
+  const theme = useTheme();
   const navigate = useNavigate();
 
   const { setMobileOpen, setIsClosing, mobileOpen, setSelectedCommune } =
@@ -128,14 +131,13 @@ function DrawerContent() {
   return (
     <div>
       <Toolbar
-        sx={{ backgroundColor: "#1564b3", color: "white", boxShadow: 3 }}
+        sx={{
+          backgroundColor: theme.palette.toolbarBgColor,
+          color: theme.palette.toolbarTitleColor,
+          boxShadow: 3,
+        }}
         component="nav"
         aria-labelledby="nested-list-subheader"
-        subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            Nested List Items
-          </ListSubheader>
-        }
       >
         <BlurOnIcon sx={{ fontSize: 40, mr: 2 }} />
         <Typography variant="h6">MENU</Typography>
