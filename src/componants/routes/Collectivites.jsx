@@ -16,7 +16,7 @@ function Collectivites() {
   const navigate = useNavigate();
   const { setSelectedCommune } = useContext(AppContext);
   return (
-    <Box component="main" sx={{ height: "100vh", px: { md: 3, xs: 2 } }}>
+    <Box component="main" sx={{ height: "100%", px: { md: 3, xs: 2 } }}>
       <Breadcrumbs
         separator={<NavigateNextIcon fontSize="small" />}
         aria-label="breadcrumb"
