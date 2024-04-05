@@ -4,14 +4,7 @@ import { AppContext } from "../main/AppContext";
 import CommuneDetails from "../SubComponants/CommuneDetails";
 import CommuneCounterChip from "../SubComponants/CommuneCounterChip";
 
-import {
-  Box,
-  Typography,
-  TextField,
-  Autocomplete,
-  Chip,
-  Grid,
-} from "@mui/material";
+import { Box, Typography, TextField, Autocomplete, Grid } from "@mui/material";
 import BreadcrumbsHeader from "../SubComponants/BreadcrumbsHeader";
 
 function Communes() {
@@ -21,8 +14,43 @@ function Communes() {
 
   const { selectedCommune, setSelectedCommune } = useContext(AppContext);
 
+  // Ces fonctions sont pour filtrer les options d'Autocomplete
+  // Elles lui permettent de montrer les options comme `d'arcy`
+  // lorsque l'utilisateur tape `darcy` sans l'apostrophe et de
+  // monter `Buëch` lorsqu'on tape `Buech` sans l'accent
+  const removeAccents = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
+
+  const createFilterOptions = (config = {}) => {
+    const { ignoreAccents = true, ...rest } = config;
+    return (options, { inputValue }) => {
+      let input = inputValue.toLowerCase();
+      if (
+        ignoreAccents &&
+        !input.includes("'") &&
+        !/[\u0300-\u036f]/.test(input)
+      ) {
+        input = removeAccents(input.replace(/'/g, ""));
+      }
+
+      return options.filter((option) => {
+        let candidate = option.nom.toLowerCase();
+        if (
+          ignoreAccents &&
+          !candidate.includes("'") &&
+          !/[\u0300-\u036f]/.test(candidate)
+        ) {
+          candidate = removeAccents(candidate.replace(/'/g, ""));
+        }
+
+        return candidate.indexOf(input) !== -1;
+      });
+    };
+  };
+
   useEffect(() => {
-    setCommunes([]); // Effacer l'état des communes
+    setCommunes([]); // Effacer l'état des communes avant de commencer
     let timeoutId;
     if (inputValue) {
       const fetchData = async () => {
@@ -106,6 +134,7 @@ function Communes() {
                 onChange={(event, newValue) => {
                   setSelectedCommune(newValue);
                 }}
+                filterOptions={createFilterOptions()}
                 noOptionsText={
                   inputValue === ""
                     ? "Commancer à tapper pour cherche"
