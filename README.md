@@ -6,8 +6,8 @@ Le frontend utilise React.js et Material UI pour créer une application web mono
 
 ## Démo de l'application
 
-<https://khaldevmedia.github.io/info-france>
+<a href="https://khaldevmedia.github.io/info-france" target="_blank">https://khaldevmedia.github.io/info-france</a>
 
 ## Site Internet de l'API
 
-<https://api.gouv.fr/>
+<a href="https://api.gouv.fr/" target="_blank">https://api.gouv.fr/</a>
