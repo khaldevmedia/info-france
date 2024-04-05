@@ -26,22 +26,23 @@ function Communes() {
     const { ignoreAccents = true, ...rest } = config;
     return (options, { inputValue }) => {
       let input = inputValue.toLowerCase();
-      if (
-        ignoreAccents &&
-        !input.includes("'") &&
-        !/[\u0300-\u036f]/.test(input)
-      ) {
-        input = removeAccents(input.replace(/'/g, ""));
+      let ignoreApostrophe = !input.includes("'");
+      let ignoreAccent = ignoreAccents && !/[\u0300-\u036f]/.test(input);
+
+      if (ignoreApostrophe) {
+        input = input.replace(/'/g, "");
+      }
+      if (ignoreAccent) {
+        input = removeAccents(input);
       }
 
       return options.filter((option) => {
         let candidate = option.nom.toLowerCase();
-        if (
-          ignoreAccents &&
-          !candidate.includes("'") &&
-          !/[\u0300-\u036f]/.test(candidate)
-        ) {
-          candidate = removeAccents(candidate.replace(/'/g, ""));
+        if (ignoreApostrophe) {
+          candidate = candidate.replace(/'/g, "");
+        }
+        if (ignoreAccent) {
+          candidate = removeAccents(candidate);
         }
 
         return candidate.indexOf(input) !== -1;
