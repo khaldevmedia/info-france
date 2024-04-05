@@ -138,26 +138,65 @@ function DepartementView() {
           <Typography sx={{ mb: 2 }} variant="h4">
             Département : {departementName}
           </Typography>
-          <Typography sx={{ mb: 2 }} variant="h6">
-            Numéro du département :{" "}
-            {selectedDepartement ? selectedDepartement.code : null}
-          </Typography>
-          <Typography sx={{ mb: 2 }} variant="h6">
-            Population :{" "}
-            {depCommunesList && totalPopulation(depCommunesList) !== "0" ? (
-              totalPopulation(depCommunesList) + "."
-            ) : (
-              <CircularProgress size={15} />
-            )}
-          </Typography>
-          <Typography sx={{ mb: 2 }} variant="h6">
-            Nombre des communes :{" "}
-            {depCommunesList.length > 0 ? (
-              depCommunesList.length + "."
-            ) : (
-              <CircularProgress size={15} />
-            )}
-          </Typography>
+          <Box
+            sx={{
+              mb: 2,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Box>
+              <Typography variant="h6">Numéro du département :</Typography>
+            </Box>
+            <Box sx={{ ml: 1 }}>
+              <Typography variant="h6">
+                {Object.keys(selectedDepartement).length
+                  ? selectedDepartement.code
+                  : depCode}
+              </Typography>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              mb: 2,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Box>
+              <Typography variant="h6">Population :</Typography>
+            </Box>
+            <Box sx={{ ml: 1 }}>
+              {depCommunesList && totalPopulation(depCommunesList) !== "0" ? (
+                <Typography variant="h6">
+                  {totalPopulation(depCommunesList) + "."}
+                </Typography>
+              ) : (
+                <CircularProgress size={20} />
+              )}
+            </Box>
+          </Box>
+
+          <Box
+            sx={{
+              mb: 2,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Box>
+              <Typography variant="h6">Nombre des communes :</Typography>
+            </Box>
+            <Box sx={{ ml: 1 }}>
+              {depCommunesList.length > 0 ? (
+                <Typography variant="h6">
+                  {depCommunesList.length + "."}
+                </Typography>
+              ) : (
+                <CircularProgress size={20} />
+              )}
+            </Box>
+          </Box>
           {depCommunesList.length > 0 ? (
             <Box>
               <TextField

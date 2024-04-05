@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import api from "../../api/geoAPI";
 import { CircularProgress, Typography } from "@mui/material";
 
-const CalRegionPup = ({ regCode }) => {
+const CalcRegionPop = ({ regCode }) => {
   const [regionPopulation, setRegionPopulation] = useState(null);
 
   useEffect(() => {
@@ -55,4 +55,4 @@ const CalRegionPup = ({ regCode }) => {
   );
 };
 
-export default CalRegionPup;
+export default CalcRegionPop;

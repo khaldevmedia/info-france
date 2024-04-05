@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../../api/geoAPI";
-import CalRegionPup from "../SubComponants/CalRegionPup";
+import CalcRegionPop from "../SubComponants/CalcRegionPop";
 import BreadcrumbsHeader from "../SubComponants/BreadcrumbsHeader";
 import CenteredBox from "../SubComponants/CenteredBox";
 import {
@@ -121,7 +121,7 @@ function RegionsView() {
             Région: {regionName}
           </Typography>
           <Typography sx={{ mb: 2 }} variant="h6">
-            Population: <CalRegionPup regCode={regCode} />
+            Population: <CalcRegionPop regCode={regCode} />
           </Typography>
           <Typography sx={{ mb: 2 }} variant="h6">
             Nombre des départements :{" "}
