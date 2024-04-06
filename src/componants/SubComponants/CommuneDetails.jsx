@@ -3,7 +3,7 @@ import api from "../../api/geoAPI";
 import { AppContext } from "../main/AppContext";
 import CenteredBox from "./CenteredBox";
 import { useParams, useNavigate } from "react-router-dom";
-
+import { useTheme } from "@emotion/react";
 import {
   Box,
   Typography,
@@ -19,6 +19,7 @@ import {
 import MapComponent from "./MapComponent";
 
 function CommuneDetails() {
+  const theme = useTheme();
   const { selectedCommune, setSelectedCommune } = useContext(AppContext);
   const navigate = useNavigate();
   const { communeName } = useParams();
@@ -159,18 +160,20 @@ function CommuneDetails() {
             </Grid>
             <Grid item xs={12} md={6}>
               <Paper elevation={6}>
-                <MapComponent
-                  height={250}
-                  zoom={11}
-                  center={[
-                    selectedCommune.centre.coordinates[1],
-                    selectedCommune.centre.coordinates[0],
-                  ]}
-                  markerPosition={[
-                    selectedCommune.centre.coordinates[1],
-                    selectedCommune.centre.coordinates[0],
-                  ]}
-                />
+                <Box sx={{ opacity: theme.palette.mode === "dark" ? 0.7 : 1 }}>
+                  <MapComponent
+                    height={250}
+                    zoom={11}
+                    center={[
+                      selectedCommune.centre.coordinates[1],
+                      selectedCommune.centre.coordinates[0],
+                    ]}
+                    markerPosition={[
+                      selectedCommune.centre.coordinates[1],
+                      selectedCommune.centre.coordinates[0],
+                    ]}
+                  />
+                </Box>
               </Paper>
             </Grid>
           </Grid>
