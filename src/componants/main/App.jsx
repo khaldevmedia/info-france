@@ -53,6 +53,11 @@ const lightTheme = createTheme({
     drawerBgColor: "#f2f2f2",
     dropListBorderColor: "grey.300",
   },
+  typography: {
+    h6: {
+      fontSize: "1.20rem",
+    },
+  },
 });
 const darkTheme = createTheme({
   palette: {
@@ -61,6 +66,11 @@ const darkTheme = createTheme({
     toolbarTitleColor: "#fff",
     drawerBgColor: "#262626",
     dropListBorderColor: "grey.700",
+  },
+  typography: {
+    h6: {
+      fontSize: "1.20rem",
+    },
   },
 });
 
