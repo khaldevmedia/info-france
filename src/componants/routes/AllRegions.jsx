@@ -60,7 +60,7 @@ function Regions() {
   }, []);
 
   return (
-    <Box id="main" sx={{ height: "100%", px: { xs: 1, md: 3 }, mb: 2 }}>
+    <Box id="main" sx={{ height: "100%", px: { md: 3, xs: 2 }, mb: 2 }}>
       <BreadcrumbsHeader />
       <Box sx={{ mb: 1 }}>
         <Typography sx={{ mb: 2 }} variant="h4">
@@ -92,7 +92,7 @@ function Regions() {
                   sx={{
                     mb: 1,
                     width: { md: "50%", xs: "100%" },
-                    textAlign: "left",
+                    textAlign: "center",
                   }}
                   color="secondary"
                   variant="outlined"

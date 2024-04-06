@@ -6,7 +6,7 @@ function Home() {
   return (
     <Box component="main" sx={{ height: "100%", px: { md: 3, xs: 2 } }}>
       <Typography sx={{ mb: 2 }} variant="h4">
-        Acceuil
+        Accueil
       </Typography>
       <Typography align="justify">
         Bienvenue au site Internet de l'interface non officielle d'une API

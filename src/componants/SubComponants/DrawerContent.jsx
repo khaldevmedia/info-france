@@ -36,7 +36,7 @@ import { AppContext } from "../main/AppContext";
 
 const linkList = [
   {
-    text: "Accuil",
+    text: "Accueil",
     link: "/",
     icon: <HomeIcon />,
     dividerAfter: false,

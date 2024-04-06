@@ -51,6 +51,7 @@ const lightTheme = createTheme({
     toolbarBgColor: "#1564b3",
     toolbarTitleColor: "#fff",
     drawerBgColor: "#f2f2f2",
+    dropListBorderColor: "grey.300",
   },
 });
 const darkTheme = createTheme({
@@ -59,6 +60,7 @@ const darkTheme = createTheme({
     toolbarBgColor: "#061d33",
     toolbarTitleColor: "#fff",
     drawerBgColor: "#262626",
+    dropListBorderColor: "grey.700",
   },
 });
 

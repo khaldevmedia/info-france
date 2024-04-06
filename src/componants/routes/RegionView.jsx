@@ -109,7 +109,7 @@ function RegionsView() {
   }, [regCode]);
 
   return (
-    <Box id="main" sx={{ height: "100%", px: { xs: 1, md: 3 }, mb: 2 }}>
+    <Box id="main" sx={{ height: "100%", px: { md: 3, xs: 2 }, mb: 2 }}>
       {loading ? (
         <CenteredBox id="spinner" height="20vh">
           <CircularProgress />
@@ -148,7 +148,7 @@ function RegionsView() {
                       sx={{
                         mb: 1,
                         width: { md: "50%", xs: "100%" },
-                        textAlign: "left",
+                        textAlign: "center",
                       }}
                       color="success"
                       variant="outlined"

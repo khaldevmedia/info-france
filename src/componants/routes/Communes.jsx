@@ -6,8 +6,10 @@ import CommuneCounterChip from "../SubComponants/CommuneCounterChip";
 
 import { Box, Typography, TextField, Autocomplete, Grid } from "@mui/material";
 import BreadcrumbsHeader from "../SubComponants/BreadcrumbsHeader";
+import { useTheme } from "@mui/material/styles";
 
 function Communes() {
+  const theme = useTheme();
   const [communes, setCommunes] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -79,7 +81,7 @@ function Communes() {
   }, [inputValue]);
 
   return (
-    <Box id="main" sx={{ height: "100%", px: { xs: 1, md: 3 }, mb: 3 }}>
+    <Box id="main" sx={{ height: "100%", px: { md: 3, xs: 2 }, mb: 3 }}>
       <BreadcrumbsHeader />
       <Box sx={{ mb: 1 }}>
         <Typography sx={{ mb: 2 }} variant="h4">
@@ -116,7 +118,7 @@ function Communes() {
                       justifyContent: "space-between",
                       width: "100%",
                       borderBottom: 1,
-                      borderColor: "grey.300",
+                      borderColor: theme.palette.dropListBorderColor,
                     }}
                     component="li"
                     {...props}
