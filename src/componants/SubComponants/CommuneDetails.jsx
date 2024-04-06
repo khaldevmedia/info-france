@@ -16,7 +16,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 
-import MapComponent from "./MapComponanr";
+import MapComponent from "./MapComponent";
 
 function CommuneDetails() {
   const { selectedCommune, setSelectedCommune } = useContext(AppContext);
