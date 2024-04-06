@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useState, useEffect } from "react";
 // MUI Componants
 import {
@@ -38,7 +37,7 @@ import Entreprises from "../routes/Entreprises";
 import Page404 from "../routes/Page404";
 import DepartementView from "../routes/DepartementView";
 import Education from "../routes/Education";
-import ScrollToTop from "../SubComponants/ScrollToTop";
+import ScrollToTopAndCloseDrawer from "../SubComponants/ScrollToTopAndCloseDrawer";
 import RegionsView from "../routes/RegionView";
 import DrawerContent from "../SubComponants/DrawerContent";
 
@@ -88,8 +87,8 @@ function App() {
   const [selectedCommune, setSelectedCommune] = useState(null);
   const [departementsList, setDepartementsList] = useState([]);
   const [regionsList, setRegionsList] = useState([]);
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [isClosing, setIsClosing] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -131,8 +130,8 @@ function App() {
           setRegionsList,
           // L'un ou l'autre
           setMobileOpen,
-          setIsClosing,
           mobileOpen,
+          setIsClosing,
         }}
       >
         <Router>
@@ -207,7 +206,6 @@ function App() {
               }}
               aria-label="mailbox folders"
             >
-              {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
               <Drawer
                 variant="temporary"
                 open={mobileOpen}
@@ -287,7 +285,7 @@ function App() {
                 <Route path="404" element={<Page404 />} />
                 <Route path="*" element={<Page404 />} />
               </Routes>
-              <ScrollToTop />
+              <ScrollToTopAndCloseDrawer />
             </Box>
             <ScrollToTopButton />
           </Box>
