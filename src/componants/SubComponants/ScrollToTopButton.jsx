@@ -3,6 +3,8 @@ import { Fab } from "@mui/material";
 import { KeyboardArrowUp } from "@mui/icons-material";
 import styled from "@emotion/styled";
 
+// La foction styled() prend un composant comme paramètre
+// et retourne un nouveau composant avec le CSS passé
 const ScrollButton = styled(Fab)`
   position: fixed;
   bottom: 20px;

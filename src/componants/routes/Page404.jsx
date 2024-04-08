@@ -30,7 +30,7 @@ function Page404() {
         Il paraît que vous avez perdu le chemin.
       </Typography>
       <Typography variant="h6" sx={{ mb: 2, textAlign: "center" }}>
-        La page que vous chercher n'existe pas!
+        La page que vous cherchez n'existe pas!
       </Typography>
       <Link href="#" onClick={() => navigate("/")} sx={{ textAlign: "center" }}>
         Retour à la page d'acceuil
