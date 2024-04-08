@@ -161,7 +161,7 @@ function App() {
                   >
                     <IconButton
                       color="inherit"
-                      aria-label="open drawer"
+                      aria-label="ouvrir la barre latérale"
                       edge="start"
                       onClick={handleDrawerToggle}
                       sx={{ mr: 2, display: { sm: "none" } }}
@@ -175,7 +175,7 @@ function App() {
                   <Box sx={{ pr: { xs: 0, md: 10 } }}>
                     <IconButton
                       color="inherit"
-                      aria-label="Github link"
+                      aria-label="Lien vers Github"
                       edge="start"
                       href="https://github.com/khaldevmedia/info-france.git"
                       target="_blank"
@@ -185,7 +185,7 @@ function App() {
                     </IconButton>
                     <IconButton
                       color="inherit"
-                      aria-label="Toogle theme"
+                      aria-label="changer le thème"
                       onClick={() => setDarkMode(!darkMode)}
                     >
                       {darkMode ? (
@@ -204,7 +204,7 @@ function App() {
                 width: { sm: drawerWidth },
                 flexShrink: { sm: 0 },
               }}
-              aria-label="mailbox folders"
+              aria-label="liens de navigation"
             >
               <Drawer
                 variant="temporary"

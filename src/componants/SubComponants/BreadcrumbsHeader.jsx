@@ -20,7 +20,7 @@ function BreadcrumbsHeader() {
   return (
     <Breadcrumbs
       separator={<NavigateNextIcon fontSize="small" />}
-      aria-label="breadcrumb"
+      aria-label="liens arborescents"
       sx={{ mb: 2 }}
     >
       {pathArray.map((crumb, index) => {

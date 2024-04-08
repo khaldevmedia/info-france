@@ -36,7 +36,7 @@ const ScrollToTopButton = () => {
     isVisible && (
       <ScrollButton
         color="primary"
-        aria-label="scroll back to top"
+        aria-label="retourner en haut de la page"
         onClick={scrollToTop}
       >
         <KeyboardArrowUp />

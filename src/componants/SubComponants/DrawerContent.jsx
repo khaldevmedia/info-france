@@ -137,7 +137,7 @@ function DrawerContent() {
           boxShadow: 3,
         }}
         component="nav"
-        aria-labelledby="nested-list-subheader"
+        aria-labelledby="Titre de la liste de navigation"
       >
         <BlurOnIcon sx={{ fontSize: 40, mr: 2 }} />
         <Typography variant="h6">MENU</Typography>
