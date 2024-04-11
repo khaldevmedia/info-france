@@ -33,10 +33,11 @@ import Communes from "../routes/Communes";
 import CommuneView from "../routes/CommuneView";
 import AllDepartements from "../routes/AllDepartements";
 import AllRegions from "../routes/AllRegions";
-import Entreprises from "../routes/Entreprises";
+import Entreprises from "../routes/Entreprises/Entreprises";
 import Page404 from "../routes/Page404";
 import DepartementView from "../routes/DepartementView";
-import Education from "../routes/Education";
+import Education from "../routes/Education/Education";
+import Etablissements from "../routes/Education/Etablissements";
 import ScrollToTopAndCloseDrawer from "../SubComponants/ScrollToTopAndCloseDrawer";
 import RegionsView from "../routes/RegionView";
 import DrawerContent from "../SubComponants/DrawerContent";
@@ -280,8 +281,12 @@ function App() {
                   path="/collectivites/regions/:regionName/:departementName/:communeName"
                   element={<CommuneView />}
                 />
-                <Route path="/entreprises" element={<Entreprises />} />
-                <Route path="/education" element={<Education />} />
+                <Route path="/education/" element={<Education />} />
+                <Route
+                  path="/education/etablissements/"
+                  element={<Etablissements />}
+                />
+                <Route path="/entreprises/" element={<Entreprises />} />
                 <Route path="404" element={<Page404 />} />
                 <Route path="*" element={<Page404 />} />
               </Routes>

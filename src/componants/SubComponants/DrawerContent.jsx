@@ -30,76 +30,13 @@ import BusinessIcon from "@mui/icons-material/Business";
 import SchoolIcon from "@mui/icons-material/School";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import StoreIcon from "@mui/icons-material/Store";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 
 // Context
 import { AppContext } from "../main/AppContext";
-
-const linkList = [
-  {
-    text: "Accueil",
-    link: "/",
-    icon: <HomeIcon />,
-    dividerAfter: false,
-    subList: null,
-  },
-  {
-    text: "À propos",
-    link: "/about",
-    icon: <InfoIcon />,
-    dividerAfter: true,
-    subList: null,
-  },
-  {
-    text: "Organisation",
-    link: null,
-    icon: <MapIcon />,
-    dividerAfter: false,
-    subList: [
-      {
-        text: "Collectivités",
-        link: "/collectivites",
-        icon: <GroupsIcon />,
-        dividerAfter: false,
-        subList: null,
-      },
-      {
-        text: "Régions",
-        link: "/collectivites/regions",
-        icon: <LocationCityIcon />,
-        dividerAfter: false,
-        subList: null,
-      },
-      {
-        text: "Départements",
-        link: "/collectivites/departements",
-        icon: <ApartmentIcon />,
-        dividerAfter: false,
-        subList: null,
-      },
-      {
-        text: "Communes",
-        link: "/collectivites/communes",
-        icon: <MapsHomeWorkIcon />,
-        dividerAfter: true,
-        subList: null,
-      },
-    ],
-  },
-  {
-    text: "Éducation",
-    link: "/education",
-    icon: <SchoolIcon />,
-    dividerAfter: false,
-    subList: null,
-  },
-  {
-    text: "Entreprises",
-    link: "/entreprises",
-    icon: <BusinessIcon />,
-    dividerAfter: false,
-    subList: null,
-  },
-];
 
 function DrawerContent() {
   const theme = useTheme();
@@ -108,10 +45,12 @@ function DrawerContent() {
   const { setMobileOpen, setIsClosing, mobileOpen, setSelectedCommune } =
     useContext(AppContext);
 
-  // Dérouler le sous-menu
+  // Dérouler les sous-menus
   const [orgMenuOpen, setOrgMenuOpen] = useState(false);
+  const [eduMenuOpen, setEduMenuOpen] = useState(false);
+  const [entMenuOpen, setEntMenuOpen] = useState(false);
 
-  const handleMenuItemClick = (itemLink) => {
+  const handleMenuItemClick = (itemLink, itemText) => {
     if (itemLink) {
       if (itemLink === "/collectivites/communes") {
         setSelectedCommune(null);
@@ -124,9 +63,129 @@ function DrawerContent() {
         navigate(itemLink);
       }
     } else {
-      setOrgMenuOpen(!orgMenuOpen);
+      switch (itemText) {
+        case "Organisation":
+          setOrgMenuOpen(!orgMenuOpen);
+          break;
+        case "Éducation":
+          setEduMenuOpen(!eduMenuOpen);
+          break;
+        case "Entreprises":
+          setEntMenuOpen(!entMenuOpen);
+          break;
+      }
     }
   };
+
+  const linkList = [
+    {
+      text: "Accueil",
+      link: "/",
+      icon: <HomeIcon />,
+      dividerAfter: false,
+      inBool: null,
+      subList: null,
+    },
+    {
+      text: "À propos",
+      link: "/about",
+      icon: <InfoIcon />,
+      dividerAfter: true,
+      inBool: null,
+      subList: null,
+    },
+    {
+      text: "Organisation",
+      link: null,
+      icon: <MapIcon />,
+      dividerAfter: false,
+      inBool: orgMenuOpen,
+      subList: [
+        {
+          text: "Collectivités",
+          link: "/collectivites",
+          icon: <GroupsIcon />,
+          dividerAfter: false,
+          inBool: null,
+          subList: null,
+        },
+        {
+          text: "Régions",
+          link: "/collectivites/regions",
+          icon: <LocationCityIcon />,
+          dividerAfter: false,
+          inBool: null,
+          subList: null,
+        },
+        {
+          text: "Départements",
+          link: "/collectivites/departements",
+          icon: <ApartmentIcon />,
+          dividerAfter: false,
+          inBool: null,
+          subList: null,
+        },
+        {
+          text: "Communes",
+          link: "/collectivites/communes",
+          icon: <MapsHomeWorkIcon />,
+          dividerAfter: true,
+          inBool: null,
+          subList: null,
+        },
+      ],
+    },
+    {
+      text: "Éducation",
+      link: null,
+      icon: <SchoolIcon />,
+      dividerAfter: false,
+      inBool: eduMenuOpen,
+      subList: [
+        {
+          text: "Présentation ",
+          link: "/education",
+          icon: <ImportContactsIcon />,
+          dividerAfter: false,
+          inBool: null,
+          subList: null,
+        },
+        {
+          text: "Établissements",
+          link: "/education/etablissements",
+          icon: <AccountBalanceIcon />,
+          dividerAfter: true,
+          inBool: null,
+          subList: null,
+        },
+      ],
+    },
+    {
+      text: "Entreprises",
+      link: null,
+      icon: <BusinessIcon />,
+      dividerAfter: false,
+      inBool: entMenuOpen,
+      subList: [
+        {
+          text: "Présentation ",
+          link: "/entreprises",
+          icon: <BusinessCenterIcon />,
+          dividerAfter: false,
+          inBool: null,
+          subList: null,
+        },
+        {
+          text: "Établissements",
+          link: "/entreprises/etablissements",
+          icon: <StoreIcon />,
+          dividerAfter: true,
+          inBool: null,
+          subList: null,
+        },
+      ],
+    },
+  ];
 
   return (
     <div>
@@ -147,25 +206,27 @@ function DrawerContent() {
         {linkList.map((item, index) => (
           <React.Fragment key={index}>
             <ListItemButton
-              onClick={() => handleMenuItemClick(item.link)}
+              onClick={() => handleMenuItemClick(item.link, item.text)}
               divider={item.dividerAfter}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
-              {item.link ? null : orgMenuOpen ? <ExpandLess /> : <ExpandMore />}
+              {item.link ? null : item.inBool ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             {item.subList &&
               item.subList.map((subItem, subIndex) => (
                 <Collapse
                   key={subIndex}
-                  in={orgMenuOpen}
+                  in={item.inBool}
                   timeout="auto"
                   unmountOnExit
                 >
                   <List component="div" disablePadding>
                     <ListItemButton
                       sx={{ pl: 4 }}
-                      onClick={() => handleMenuItemClick(subItem.link)}
+                      onClick={() =>
+                        handleMenuItemClick(subItem.link, subItem.text)
+                      }
                       divider={subItem.dividerAfter}
                     >
                       <ListItemIcon>{subItem.icon}</ListItemIcon>
