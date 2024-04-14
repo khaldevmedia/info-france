@@ -18,7 +18,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 
 // MUI Icons
-import BlurOnIcon from "@mui/icons-material/BlurOn";
+import ApiIcon from "@mui/icons-material/Api";
 import InfoIcon from "@mui/icons-material/Info";
 import HomeIcon from "@mui/icons-material/Home";
 import MapIcon from "@mui/icons-material/Map";
@@ -198,7 +198,7 @@ function DrawerContent() {
         component="nav"
         aria-labelledby="Titre de la liste de navigation"
       >
-        <BlurOnIcon sx={{ fontSize: 40, mr: 2 }} />
+        <ApiIcon sx={{ fontSize: 30, mr: 2 }} />
         <Typography variant="h6">MENU</Typography>
       </Toolbar>
       <Divider />
